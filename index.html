@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Arcade 3D Party - Ultimate</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <button class="back-btn" id="backBtn">MENU</button>
+
+    <div class="hud" id="hud">
+      <div>Niveau: <span id="hud-lvl">1</span>/5 | Score: <span id="hud-score">0</span></div>
+      <div class="hud-coins">🪙 Pièces : <span id="hud-coins">0</span></div>
+    </div>
+
+    <div id="dpad">
+      <div></div><button class="dbtn" id="btnUp">▲</button><div></div>
+      <button class="dbtn" id="btnLeft">◀</button>
+      <button class="dbtn" id="btnDown">▼</button>
+      <button class="dbtn" id="btnRight">▶</button>
+    </div>
+
+    <div id="game-overlay">
+      <h2 id="overlay-title">FIN DE PARTIE</h2>
+      <p id="overlay-sub">+0 🪙 Gagnés !</p>
+      <input type="text" id="player-name" class="score-input" placeholder="Pseudo (10 chars max)" maxlength="10">
+      <button class="btn-primary" id="overlay-btn">CONTINUER</button>
+    </div>
+
+    <div id="menu" class="screen">
+      <h1>ARCADE 3D PARTY</h1>
+      <p class="subtitle">Défis 3D modulaires</p>
+      <div class="coins-display">🪙 <span id="menu-coins">0</span></div>
+      <button class="btn-game btn-1" onclick="app.launchGame('reflex')">1. 3D Tap Reflex</button>
+      <button class="btn-game btn-2" onclick="app.launchGame('dodge')">2. 3D Dodge Roll</button>
+      <button class="btn-game btn-3" onclick="app.launchGame('catch')">3. 3D Color Catch</button>
+      <button class="btn-game btn-4" onclick="app.launchGame('snake')">4. 3D Snake</button>
+      <button class="btn-game btn-5" onclick="app.launchGame('car')">5. 3D Car Drive</button>
+      <button class="btn-game btn-6" onclick="app.launchGame('puzzle')">6. 3D Circuit Puzzle</button>
+      <button class="btn-game btn-shop" onclick="app.showScreen('shop')">🛒 BOUTIQUE SKINS</button>
+      <button class="btn-game btn-top" onclick="app.showScreen('leaderboard')">🏆 CLASSEMENT</button>
+    </div>
+
+    <div id="shop-screen" class="screen" style="display:none;">
+      <h1>BOUTIQUE</h1>
+      <div class="coins-display">🪙 <span id="shop-coins">0</span></div>
+      <div class="shop-list" id="shopItems"></div>
+      <button class="btn-primary" onclick="app.showScreen('menu')">RETOUR</button>
+    </div>
+
+    <div id="leaderboard-screen" class="screen" style="display:none;">
+      <h1>🏆 TOP 5 SCORES</h1>
+      <ul class="lb-list" id="lbList"></ul>
+      <button class="btn-primary" onclick="app.showScreen('menu')">RETOUR</button>
+    </div>
+
+    <div id="canvas3d"></div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="js/games/reflex.js"></script>
+  <script src="js/games/dodge.js"></script>
+  <script src="js/games/catch.js"></script>
+  <script src="js/games/snake.js"></script>
+  <script src="js/games/car.js"></script>
+  <script src="js/games/puzzle.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
